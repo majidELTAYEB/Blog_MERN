@@ -18,9 +18,17 @@ let User = Schema({
         required: true
     },
 
-    email:{
-        
-    },
+    email: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        unique: true,
+        required: "adresse mail requise",
+        match: [
+          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+          "Veuillez entrer un email de passe valide",
+        ],
+      },
 
     password:{
         type: String,

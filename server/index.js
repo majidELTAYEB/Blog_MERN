@@ -11,5 +11,7 @@ app.use(bodyParser.json());
 app.use("/user",User)
 
 app.listen(port, () => {
-    console.log(`Application is listening at port ${port}`);
+    console.log('OK');
 });
+
+

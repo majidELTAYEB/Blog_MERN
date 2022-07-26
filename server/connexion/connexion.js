@@ -7,4 +7,10 @@ mongoose.connect(process.env.mongoURI,{useUnifiedTopology: true,
 .then(res => console.log(`Connection reussie`))
 .catch(err => console.log(`erreur dans la connection MongoDb ${err}`));
 
-module.exports = mongoose;
+// async function main() {
+//     await mongoose.connect(process.env.mongoURI);
+//     console.log('Connection successfull')
+//   }
+
+ module.exports = mongoose;
+

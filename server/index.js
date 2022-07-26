@@ -8,10 +8,12 @@ const port = 8000;
 app.use(exepress.json());
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
+
 app.use("/user",User)
 
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
     console.log('OK');
 });
+
 
 

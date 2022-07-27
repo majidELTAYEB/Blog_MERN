@@ -1,6 +1,5 @@
 const request = require('supertest')
 const app = require('../../index')
-const { deleteOne } = require('../../Model/User')
 
 
 
@@ -35,7 +34,7 @@ describe("Test de la route pour la connexion", () => {
 
 describe("Tester l'inscription", () => {
 
-     //si l'email est deja present dans la base de donnée renvoyer une erreur 400
+     //si l'email est deja present dans la base de donnée renvoyer une erreur 400 avec un message en disant que l'email existe deja
      it("devra envoyer un status 400 si un compte est deja créer", async () => {
         const res = await request(app).post('/user/register').send({ email : 'majid@majid.fr', password : 'majidmajid', username : 'majidmajid', firstname : 'majid', lastname : "eltayeb"})
         expect(res.statusCode).toBe(400);

@@ -1,10 +1,14 @@
 const UserServices = require('../Services/UserServices');
-module.exports = class User{
+const checkCredentials = require('../Functions/checkCredentials')
+module.exports = class User
+{
    
    static async ApiCreateUser(req,res,next){
         try {
+          // console.log(req.body)
+
             const createdUser =  await UserServices.createUser(req.body, res);
-             res.json(createdUser);
+            res.json(createdUser);
          } catch (error) {
             
             //console.log(error)

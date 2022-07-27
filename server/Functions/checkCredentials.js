@@ -3,7 +3,7 @@ module.exports = class checkCredentials
 {
     static async register(input)
     {
-        if(!input.email || !input.password || !input.username || !fistname.email || !lastname.email) return false
+        if(!input.email || !input.password || !input.username || !input.firstname || !input.lastname) return false
     }
 
     static async login(input)

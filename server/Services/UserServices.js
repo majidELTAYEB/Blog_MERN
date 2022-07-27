@@ -11,8 +11,10 @@ module.exports = class UserServices
     static async createUser(data, res){
         try {
             const checkinput = await checkCredentials.register(data)
-            if(!checkinput) return res.status(400).json('champs manquant')
+            if(checkinput === false) return res.status(400).json('champs manquant')
 
+            const user = await User.findOne({ email: data.email })
+            if(user) return res.status(400).json("email existant")
             const hashed = await PasswordHash.hashPassword(data.password)
 
             const newUser = {
@@ -23,16 +25,17 @@ module.exports = class UserServices
                 password : hashed,
             }
             const response = await new User(newUser).save();
-            return res.status(200).json(response)
+            return res.status(200).json('compte enregister')
         } catch (error) {
-            return res.status(400).json('email deja present')
+            console.log(error)
+            return res.json({error : error})
         }
     }
 
     static async auth(data, res){
         try {
             const checkinput = await checkCredentials.login(data)
-            if(!checkinput) return res.status(400).json('champs manquant')
+            if(checkinput === false) return res.status(400).json('champs manquant')
 
             const user = await User.findOne({ email: data.email })
             if(!user) return res.status(400).json("email inexistant")

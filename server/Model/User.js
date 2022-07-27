@@ -1,4 +1,4 @@
-const mongoose = require("../connexion/connexion.js");
+const mongoose = require("../Functions/connexion.js");
 const Schema = mongoose.Schema;
 
 let User = Schema({

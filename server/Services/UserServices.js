@@ -1,5 +1,5 @@
 const User = require("../Model/User");
-const PasswordHash = require('../motDepasse/password');
+const PasswordHash = require('../Functions/password');
 const checkCredentials = require('../Functions/checkCredentials')
 
 const SECRET_KEY = process.env.SECRET_KEY;
